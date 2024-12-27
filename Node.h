@@ -1,3 +1,7 @@
+#ifndef NODE_H
+#define NODE_H
+
+
 #include <iostream>
 
 struct Node{
@@ -9,3 +13,5 @@ struct Node{
     Node(int d); //constructor to create a node with a certain data value d
     Node(int d, Node* n); //constructor to create a node with a certain data value d and a certain next pointer n
 };
+
+#endif

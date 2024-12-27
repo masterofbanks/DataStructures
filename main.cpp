@@ -1,9 +1,12 @@
 #include <iostream> 
-using namespace std;
+#include "Singly_Linked_List.h"
 
 int main(){
-    cout << "Sigma toilet rizz" << endl;
-
+    Singly_Linked_List List;
+    List.AddHead(2);
+    List.AddHead(1);
+    List.AddHead(0);
+    List.Print();
 
     return 0;
 }
