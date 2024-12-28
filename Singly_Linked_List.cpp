@@ -56,6 +56,30 @@ void Singly_Linked_List::AddHead(int d){
         
 }
 
+//add a new node to the tail of the linked list
+void Singly_Linked_List::AddTail(int d){
+    //if the list is empty make a new node the head and tail
+    if(size == 0){
+        tail = new Node(d);
+        head = tail;
+    }
+    //if the list has one element, make the new node the tail and keep the old head as the head
+    // also make the head's next pointer the new tail and the new tail's next pointer nullptr
+    else if(size == 1){
+        tail = new Node(d);
+        head->next = tail;
+    }
+    //else just make a new node the tail and the old tail's next pointer the new node
+    else{
+        Node* temp = tail;
+        tail = new Node(d);
+        temp->next = tail;
+    }
+
+    //incrament size by 1
+    size++;
+}
+
 //prints the list via a while loop 
 // in the form {1, 2, 3, ...}
 void Singly_Linked_List::Print(){

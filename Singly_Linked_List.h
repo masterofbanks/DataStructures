@@ -14,6 +14,7 @@ public:
     //~Singly_Linked_List(); //destructor
 
     void AddHead(int d);
+    void AddTail(int d);
     void Print();
     Node* Head();
     Node* Tail();
