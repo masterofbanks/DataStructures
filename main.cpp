@@ -4,21 +4,15 @@
 int main(){
     Singly_Linked_List List;
     
-    List.AddHead(0);
-    List.AddTail(2);
-    List.InsertAfter(1, 1);
-
-    List.Print();
-    std::cout << List.Size() << std::endl;
-
-    List.Clear();
+    for(int i = 0; i < 10; i++){
+        List.AddTail(i);
+    }
     
     List.Print();
-    std::cout << List.Size() << std::endl;
 
-    List.AddHead(0);
-    
+    List.InsertAfter(10,9);
     List.Print();
-    std::cout << List.Size() << std::endl;
-    return 0;
+
+    List.InsertAfter(11,11);
+    List.Print();
 }

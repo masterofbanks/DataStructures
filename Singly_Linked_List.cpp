@@ -93,69 +93,56 @@ void Singly_Linked_List::AddTail(int d){
 
 //inserts a node with a data value d after the node at index d
 void Singly_Linked_List::InsertAfter(int d, unsigned int index){
-    //if the index is greater than the size of the SLL, seg faults will occur
-    // throw an exception in this case
     try{
-        if(index < size){
-            
-            //if the index == size -1, just call AddTail
-            if(index == size-1){
-                AddTail(d);
-            }
-            
-            //else, go to the node at the index,
-            else{
-                Node* indexedNode = GetNode(index);
-                //create a new Node with data value d
-                Node* newNode = new Node(d);
-                //save the indexed node's next pointer in a temp variable
-                Node* temp = indexedNode->next;
-                //set the indexed node's next pointer to the new Node
-                indexedNode->next = newNode;
-                //set the new Node's next pointer to the temp variable
-                newNode->next = temp;
-                //incrament the size of the List by 1
-                size++;
-            }
-                
+        //if the index == size -1, just call AddTail
+        if(index == size-1){
+            AddTail(d);
         }
-
-
+        
+        //else, go to the node at the index,
         else{
-            throw(index);
+            Node* indexedNode = GetNode(index);
+            //create a new Node with data value d
+            Node* newNode = new Node(d);
+            //save the indexed node's next pointer in a temp variable
+            Node* temp = indexedNode->next;
+            //set the indexed node's next pointer to the new Node
+            indexedNode->next = newNode;
+            //set the new Node's next pointer to the temp variable
+            newNode->next = temp;
+            //incrament the size of the List by 1
+            size++;
         }
     }
 
-    catch (int number){
-        std::cout << "Index is out of the range of the Linked List" << std::endl;
+    catch(const std::out_of_range& e){
+        std::cerr << "Error: " << e.what() << std::endl;
     }
+    
+    
 }
 
 //gets a node at an index of a Linked list
 Node* Singly_Linked_List::GetNode(unsigned int index){
-    try{
-        if(index < size){
-            int currentIndex = 0;
-            Node* indexedNode = head;
-            while(currentIndex != index){
-                indexedNode = indexedNode->next;
-                currentIndex++;
-            }
-
-            return indexedNode;
-
+    
+    
+    if(index < size){
+        int currentIndex = 0;
+        Node* indexedNode = head;
+        while(currentIndex != index){
+            indexedNode = indexedNode->next;
+            currentIndex++;
         }
 
-        else{
-            throw(index);
-        }
-        
+        return indexedNode;
+
     }
 
-    catch(int number){
-        std::cout << "Index is out of the range of the Linked List" << std::endl;
-        
+    else{
+        throw std::out_of_range("Index out of range");;
     }
+
+    
      
     return nullptr;
     
@@ -187,6 +174,8 @@ void Singly_Linked_List::Print(){
         //print the tail data plus end bracket
         std::cout << tail->data << "}" << std::endl;
     }
+
+    std::cout << "Size: " << size << std::endl;
     
 
 
