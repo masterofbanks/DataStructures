@@ -14,7 +14,16 @@ Singly_Linked_List::Singly_Linked_List(){
 
 // }
 
-// Singly_Linked_List::~Singly_Linked_List(){
+//Destructor method that frees all the memory allocated for a Linked List
+Singly_Linked_List::~Singly_Linked_List()
+{
+    Clear();
+
+}
+
+// Singly_Linked_List &Singly_Linked_List::operator=(const Singly_Linked_List &copy)
+// {
+    
 
 // }
 
@@ -23,8 +32,10 @@ int Singly_Linked_List::Size(){
     return size;
 }
 
-//add a new node to the linked list
-//make this node the new head
+
+
+// add a new node to the linked list
+// make this node the new head
 void Singly_Linked_List::AddHead(int d){
     //if the list is empty, make the head and tail the new node
     if(size == 0){
@@ -80,20 +91,92 @@ void Singly_Linked_List::AddTail(int d){
     size++;
 }
 
+//inserts a node with a data value d after the node at index d
+void Singly_Linked_List::InsertAfter(int d, unsigned int index){
+    try{
+        //if the index == size -1, just call AddTail
+        if(index == size-1){
+            AddTail(d);
+        }
+        
+        //else, go to the node at the index,
+        else{
+            Node* indexedNode = GetNode(index);
+            //create a new Node with data value d
+            Node* newNode = new Node(d);
+            //save the indexed node's next pointer in a temp variable
+            Node* temp = indexedNode->next;
+            //set the indexed node's next pointer to the new Node
+            indexedNode->next = newNode;
+            //set the new Node's next pointer to the temp variable
+            newNode->next = temp;
+            //incrament the size of the List by 1
+            size++;
+        }
+    }
+
+    catch(const std::out_of_range& e){
+        std::cerr << "Error: " << e.what() << std::endl;
+    }
+    
+    
+}
+
+//gets a node at an index of a Linked list
+Node* Singly_Linked_List::GetNode(unsigned int index){
+    
+    
+    if(index < size){
+        int currentIndex = 0;
+        Node* indexedNode = head;
+        while(currentIndex != index){
+            indexedNode = indexedNode->next;
+            currentIndex++;
+        }
+
+        return indexedNode;
+
+    }
+
+    else{
+        throw std::out_of_range("Index out of range");;
+    }
+
+    
+     
+    return nullptr;
+    
+}
+
 //prints the list via a while loop 
 // in the form {1, 2, 3, ...}
 void Singly_Linked_List::Print(){
-    std::cout << "{";
-    //start at the head usinbg a temp Node
-    Node* temp = head;
-    //print out the value at each node and contrinue to the next node
-    //until you reach nullptr
-    while(temp!=tail){
-        std::cout << temp->data << ", ";
-        temp = temp->next;
-    } 
+    if(size == 0){
+        std::cout << "{}" << std::endl;
+    }
 
-    std::cout << tail->data << "}" << std::endl;
+    else if(size == 1){
+        std::cout << "{" << head->data << "}" << std::endl;
+    }
+
+    else{
+        //print start bracket
+        std::cout << "{";
+        //start at the head usinbg a temp Node
+        Node* temp = head;
+        //print out the value at each node and contrinue to the next node
+        //until you reach the tail
+        while(temp!=tail){
+            std::cout << temp->data << ", ";
+            temp = temp->next;
+        } 
+
+        //print the tail data plus end bracket
+        std::cout << tail->data << "}" << std::endl;
+    }
+
+    std::cout << "Size: " << size << std::endl;
+    
 
 
 }
@@ -104,5 +187,24 @@ Node* Singly_Linked_List::Tail(){
     return tail;
 }
 
+void Singly_Linked_List::Clear(){
+    //create an indexed Node at the head and a garbage node set to nullptr
+    Node* indexedNode = head;
+    Node* temp = nullptr;
+    //while the indexed Node isnt nullptr
+    while(indexedNode != nullptr){
+        //set garb to the indexed pointer
+        temp = indexedNode->next;
+        //incrament the indexed Node
+        //delete garb
+        delete(indexedNode);
+        indexedNode = temp;
+
+    }
+
+    head = nullptr;
+    tail = nullptr;
+    size = 0;
+}
 
 

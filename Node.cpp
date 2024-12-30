@@ -9,7 +9,7 @@ Node::Node(){
 
 /*constructor to create a node 
 with a certain data value d*/
-Node::Node(int d){
+Node::Node(int& d){
     data = d;
     next = nullptr;
 }
@@ -17,7 +17,7 @@ Node::Node(int d){
 /*constructor to create a node 
 with a certain data value d 
 and a certain next pointer*/
-Node::Node(int d, Node* n){
+Node::Node(int &d, Node* n){
     data = d;
     next = n;
 }

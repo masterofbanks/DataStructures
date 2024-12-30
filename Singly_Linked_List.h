@@ -11,14 +11,19 @@ private:
 public:
     Singly_Linked_List(); //default constructor
     //Singly_Linked_List(const Singly_Linked_List& copy); //copy constructor
-    //~Singly_Linked_List(); //destructor
-
+    ~Singly_Linked_List(); //destructor
+    //Singly_Linked_List& operator=(const Singly_Linked_List& copy);
     void AddHead(int d);
     void AddTail(int d);
+    void InsertAfter(int d, unsigned int index);
+
+    Node* GetNode(unsigned int index);
     void Print();
     Node* Head();
     Node* Tail();
     int Size();
+
+    void Clear();
 };
 
 #endif
