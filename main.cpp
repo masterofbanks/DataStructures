@@ -1,17 +1,23 @@
-#include <iostream> 
+#include <iostream>
+#include <string> 
 #include "Singly_Linked_List.h"
 
 int main(){
-    Singly_Linked_List List;
+    Singly_Linked_List<int> Int_List;
     
     for(int i = 0; i < 10; i++){
-        List.AddTail(i);
+        Int_List.AddTail(i);
     }
     
-    List.Print();
+    Int_List.Print();
 
-    
+    Singly_Linked_List<std::string> String_List;
 
-    List.RemoveHead();
-    List.Print();
+    String_List.AddTail("Hello");
+    String_List.AddTail("World");
+
+    String_List.Print();
+
+    String_List.InsertAfter("Third Element", 1);
+    String_List.Print();
 }

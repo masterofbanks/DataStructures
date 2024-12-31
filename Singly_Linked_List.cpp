@@ -1,36 +1,61 @@
 #include <iostream>
 #include "Singly_Linked_List.h"
 
+// default constructor
+template <typename T>
+Singly_Linked_List<T>::Node::Node(){
+    data = 0;
+    next = nullptr;
+}
 
+/*constructor to create a node 
+with a certain data value d*/
+template <typename T>
+Singly_Linked_List<T>::Node::Node(T& d){
+    data = d;
+    next = nullptr;
+}
+
+/*constructor to create a node 
+with a certain data value d 
+and a certain next pointer*/
+template <typename T>
+Singly_Linked_List<T>::Node::Node(T &d, Node* n){
+    data = d;
+    next = n;
+}
 
 //default constructor
 //set both thte head and tail to null
 //set size to 0
-Singly_Linked_List::Singly_Linked_List(){
+template <typename T>
+Singly_Linked_List<T>::Singly_Linked_List(){
     head = nullptr;
     tail = nullptr;
     size = 0;
 }
 
-// Singly_Linked_List::Singly_Linked_List(const Singly_Linked_List& copy){
+// Singly_Linked_List<T>::Singly_Linked_List(const Singly_Linked_List& copy){
 
 // }
 
 //Destructor method that frees all the memory allocated for a Linked List
-Singly_Linked_List::~Singly_Linked_List()
+template <typename T>
+Singly_Linked_List<T>::~Singly_Linked_List()
 {
     Clear();
 
 }
 
-// Singly_Linked_List &Singly_Linked_List::operator=(const Singly_Linked_List &copy)
+// Singly_Linked_List &Singly_Linked_List<T>::operator=(const Singly_Linked_List &copy)
 // {
     
 
 // }
 
 //get the size of the linked list
-int Singly_Linked_List::Size(){
+template <typename T>
+int Singly_Linked_List<T>::Size(){
     return size;
 }
 
@@ -38,7 +63,8 @@ int Singly_Linked_List::Size(){
 
 // add a new node to the linked list
 // make this node the new head
-void Singly_Linked_List::AddHead(int d){
+template <typename T>
+void Singly_Linked_List<T>::AddHead(T d){
     //if the list is empty, make the head and tail the new node
     if(size == 0){
         head = new Node(d);
@@ -70,7 +96,8 @@ void Singly_Linked_List::AddHead(int d){
 }
 
 //add a new node to the tail of the linked list
-void Singly_Linked_List::AddTail(int d){
+template <typename T>
+void Singly_Linked_List<T>::AddTail(T d){
     //if the list is empty make a new node the head and tail
     if(size == 0){
         tail = new Node(d);
@@ -94,7 +121,8 @@ void Singly_Linked_List::AddTail(int d){
 }
 
 //inserts a node with a data value d after the node at index d
-void Singly_Linked_List::InsertAfter(int d, unsigned int index){
+template <typename T>
+void Singly_Linked_List<T>::InsertAfter(T d, unsigned int index){
     try{
         //if the index == size -1, just call AddTail
         if(index == size-1){
@@ -125,7 +153,8 @@ void Singly_Linked_List::InsertAfter(int d, unsigned int index){
 }
 
 //remove the head of the linked list and make head's next the new head
-void Singly_Linked_List::RemoveHead(){
+template <typename T>
+void Singly_Linked_List<T>::RemoveHead(){
     //if size is 0 -> print List is empty
     if(size == 0){
         std::cout << "List is Empty! Can't Remove Anything" << std::endl;
@@ -151,7 +180,8 @@ void Singly_Linked_List::RemoveHead(){
 }
 
 //gets a node at an index of a Linked list
-Node* Singly_Linked_List::GetNode(unsigned int index){
+template <typename T>
+typename Singly_Linked_List<T>::Node* Singly_Linked_List<T>::GetNode(unsigned int index){
     
     
     if(index < size){
@@ -178,7 +208,8 @@ Node* Singly_Linked_List::GetNode(unsigned int index){
 
 //prints the list via a while loop 
 // in the form {1, 2, 3, ...}
-void Singly_Linked_List::Print(){
+template <typename T>
+void Singly_Linked_List<T>::Print(){
     if(size == 0){
         std::cout << "{}" << std::endl;
     }
@@ -208,14 +239,19 @@ void Singly_Linked_List::Print(){
 
 
 }
-Node* Singly_Linked_List::Head(){
+
+template <typename T>
+typename Singly_Linked_List<T>::Node* Singly_Linked_List<T>::Head(){
     return head;
 }
-Node* Singly_Linked_List::Tail(){
+
+template <typename T>
+typename Singly_Linked_List<T>::Node* Singly_Linked_List<T>::Tail(){
     return tail;
 }
 
-void Singly_Linked_List::Clear(){
+template <typename T>
+void Singly_Linked_List<T>::Clear(){
     //create an indexed Node at the head and a garbage node set to nullptr
     Node* indexedNode = head;
     Node* temp = nullptr;
