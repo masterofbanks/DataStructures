@@ -11,13 +11,9 @@ int main(){
     
     Int_List.Print();
 
-    Singly_Linked_List<std::string> String_List;
+    
+    Int_List.RemoveTail();
 
-    String_List.AddTail("Hello");
-    String_List.AddTail("World");
-
-    String_List.Print();
-
-    String_List.InsertAfter("Third Element", 1);
-    String_List.Print();
+    Int_List.Print();
+    
 }

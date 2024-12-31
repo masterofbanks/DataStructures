@@ -179,6 +179,46 @@ void Singly_Linked_List<T>::RemoveHead(){
     
 }
 
+template <typename T>
+void Singly_Linked_List<T>::RemoveTail(){
+    //if size is 0 -> print List is empty
+    if(size == 0){
+        std::cout << "List is Empty! Can't Remove Anything" << std::endl;
+    }
+    //if the size is 1 -> make head and tail nullptr and decrement size by 1
+    else if(size == 1){
+        head = nullptr;
+        tail = nullptr;
+        size--;
+    }
+
+    else{
+        //create a temp node that points to the head
+        Node* temp = head;
+        //iterate that temp node until the node just before the tail 
+        while(temp != nullptr)
+        {
+            if(temp->next->next == nullptr){
+                break;
+            }
+
+            temp = temp->next;
+        }
+
+        //save the old tail in another Node
+        Node* oldTail = tail;
+        //make tail point to temp
+        tail = temp;
+        //make tail->next nullptr
+        tail->next = nullptr;
+        //delete old tail
+        delete oldTail;
+        //decrement size
+        size--;
+    }
+    
+    
+}
 //gets a node at an index of a Linked list
 template <typename T>
 typename Singly_Linked_List<T>::Node* Singly_Linked_List<T>::GetNode(unsigned int index){

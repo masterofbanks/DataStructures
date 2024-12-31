@@ -26,7 +26,8 @@ public:
     void InsertAfter(T d, unsigned int index);
 
     void RemoveHead();
-
+    void RemoveTail();
+    
     Node* GetNode(unsigned int index);
     void Print();
     Node* Head();
