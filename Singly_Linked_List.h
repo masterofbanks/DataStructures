@@ -17,10 +17,13 @@ public:
     void AddTail(int d);
     void InsertAfter(int d, unsigned int index);
 
+    void RemoveHead();
+
     Node* GetNode(unsigned int index);
     void Print();
     Node* Head();
     Node* Tail();
+
     int Size();
 
     void Clear();

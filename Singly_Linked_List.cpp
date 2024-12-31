@@ -1,6 +1,8 @@
 #include <iostream>
 #include "Singly_Linked_List.h"
 
+
+
 //default constructor
 //set both thte head and tail to null
 //set size to 0
@@ -119,6 +121,32 @@ void Singly_Linked_List::InsertAfter(int d, unsigned int index){
         std::cerr << "Error: " << e.what() << std::endl;
     }
     
+    
+}
+
+//remove the head of the linked list and make head's next the new head
+void Singly_Linked_List::RemoveHead(){
+    //if size is 0 -> print List is empty
+    if(size == 0){
+        std::cout << "List is Empty! Can't Remove Anything" << std::endl;
+    }
+    //if the size is 1 -> make head and tail nullptr and decrement size by 1
+    else if(size == 1){
+        head = nullptr;
+        tail = nullptr;
+        size--;
+    }
+    //else 
+    else{
+        //save the head in a temporary pointer called garb
+        Node* garb = head;
+        //set head to head->next
+        head = head->next;
+        //delete garb
+        delete(garb);
+        //decrement size by 1
+        size--;
+    }
     
 }
 

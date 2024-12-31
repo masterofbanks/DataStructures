@@ -10,9 +10,8 @@ int main(){
     
     List.Print();
 
-    List.InsertAfter(10,9);
-    List.Print();
+    
 
-    List.InsertAfter(11,11);
+    List.RemoveHead();
     List.Print();
 }
