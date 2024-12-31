@@ -15,5 +15,7 @@ int main(){
     Int_List.RemoveTail();
 
     Int_List.Print();
+
+    std::cout << Int_List[15] << std::endl;
     
 }

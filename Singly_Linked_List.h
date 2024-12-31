@@ -21,13 +21,14 @@ public:
     //Singly_Linked_List(const Singly_Linked_List& copy); //copy constructor
     ~Singly_Linked_List(); //destructor
     //Singly_Linked_List& operator=(const Singly_Linked_List& copy);
+    T& operator[](unsigned int index);
     void AddHead(T d);
     void AddTail(T d);
     void InsertAfter(T d, unsigned int index);
 
     void RemoveHead();
     void RemoveTail();
-    
+
     Node* GetNode(unsigned int index);
     void Print();
     Node* Head();

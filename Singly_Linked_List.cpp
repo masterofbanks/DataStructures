@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 #include "Singly_Linked_List.h"
 
 // default constructor
@@ -52,6 +53,14 @@ Singly_Linked_List<T>::~Singly_Linked_List()
     
 
 // }
+
+template <typename T>
+T& Singly_Linked_List<T>::operator[](unsigned int index){
+    Node* nthNode = GetNode(index);
+    return nthNode->data;
+
+
+}
 
 //get the size of the linked list
 template <typename T>
@@ -237,7 +246,7 @@ typename Singly_Linked_List<T>::Node* Singly_Linked_List<T>::GetNode(unsigned in
     }
 
     else{
-        throw std::out_of_range("Index out of range");;
+        throw std::out_of_range(std::to_string(index) +  " is out of range of the Linked List with size " + std::to_string(size));;
     }
 
     
