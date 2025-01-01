@@ -12,9 +12,5 @@ int main(){
     Int_List.Print();
 
     
-    Singly_Linked_List<int> copy;
-
-    copy = Singly_Linked_List<int>(Int_List);
-
-    copy.Print();
+    
 }

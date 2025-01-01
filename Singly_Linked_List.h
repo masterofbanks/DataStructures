@@ -2,6 +2,7 @@
 #define SINGLYLINKEDLIST_H
 
 #include <iostream>
+#include <vector>
 
 template <typename T>
 class Singly_Linked_List{
@@ -17,26 +18,43 @@ public:
         Node(T& d, Node* n); //constructor to create a node with a certain data value d and a certain next pointer n
     };
 
+    /* Construction and Destruction */
     Singly_Linked_List(); //default constructor
     Singly_Linked_List(const Singly_Linked_List& copy); //copy constructor
     ~Singly_Linked_List(); //destructor
+
+    /*Operators*/
     Singly_Linked_List& operator=(const Singly_Linked_List& fuck);
     T& operator[](unsigned int index);
+    bool operator==(const Singly_Linked_List<T>& rhs) const;
+
+    /*Insertion */
     void AddHead(T d);
     void AddTail(T d);
     void InsertAfter(T d, unsigned int index);
+    //void AddNodesHead(const T* data, unsigned int count);
+    //void AddNodesTail(const T* data, unsigned int count);
+    //void InsertAt(T d, unsgined int index);
+
+
+    /* Deletion*/
+
 
     void RemoveHead();
     void RemoveTail();
+    void Clear();
+    //void Remove(T d);
+    //bool RemoveAt(unsigned int index);
 
+    /*Getters*/
+    //Find
+    //Find All
     Node* GetNode(unsigned int index);
     void Print();
     Node* Head();
     Node* Tail();
-
     int Size();
 
-    void Clear();
 
 private:
     Node* head;

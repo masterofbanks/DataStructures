@@ -126,6 +126,34 @@ T& Singly_Linked_List<T>::operator[](unsigned int index){
 
 }
 
+//equals operator, return whether two linked lists are equal (deep copy)
+template <typename T>
+bool Singly_Linked_List<T>::operator==(const Singly_Linked_List<T>& rhs) const{
+    //if the two sizes are different->return false
+    if(rhs.size != size){
+        return false;
+    }
+
+    //if both linked_lists are empty, return true
+    if(rhs.head == nullptr && head == nullptr){
+        return true;
+    }
+
+    Node* temp = head;
+    Node* rhsTemp = rhs.head;
+
+    while(temp != nullptr){
+        if(temp->data != rhsTemp->data){
+            return false;
+        }
+
+        temp = temp->next;
+        rhsTemp = rhsTemp->next;
+    }
+
+    return true;
+}
+
 //get the size of the linked list
 template <typename T>
 int Singly_Linked_List<T>::Size(){
