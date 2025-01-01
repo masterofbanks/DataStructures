@@ -12,10 +12,9 @@ int main(){
     Int_List.Print();
 
     
-    Int_List.RemoveTail();
+    Singly_Linked_List<int> copy;
 
-    Int_List.Print();
+    copy = Singly_Linked_List<int>(Int_List);
 
-    std::cout << Int_List[15] << std::endl;
-    
+    copy.Print();
 }

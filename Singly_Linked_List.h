@@ -18,9 +18,9 @@ public:
     };
 
     Singly_Linked_List(); //default constructor
-    //Singly_Linked_List(const Singly_Linked_List& copy); //copy constructor
+    Singly_Linked_List(const Singly_Linked_List& copy); //copy constructor
     ~Singly_Linked_List(); //destructor
-    //Singly_Linked_List& operator=(const Singly_Linked_List& copy);
+    Singly_Linked_List& operator=(const Singly_Linked_List& fuck);
     T& operator[](unsigned int index);
     void AddHead(T d);
     void AddTail(T d);

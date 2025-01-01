@@ -36,9 +36,41 @@ Singly_Linked_List<T>::Singly_Linked_List(){
     size = 0;
 }
 
-// Singly_Linked_List<T>::Singly_Linked_List(const Singly_Linked_List& copy){
+//copy constructor
+template <typename T>
+Singly_Linked_List<T>::Singly_Linked_List(const Singly_Linked_List<T>& copy){
+    if(copy.size == 0){
+        head = nullptr;
+        tail = nullptr;
+        size = 0;
+    }
 
-// }
+    else if(copy.size == 1){
+        head = new Node(copy.head->data);
+        tail = head;
+        size = 1;
+    }
+
+    else{
+        head = new Node(copy.head->data);
+        Node* currentDummy = head;
+
+        Node* copyTemp = copy.head->next;
+
+        while(copyTemp != nullptr){
+            
+            currentDummy->next = new Node(copyTemp->data);
+            currentDummy = currentDummy->next;
+            copyTemp = copyTemp->next;
+        }
+
+        currentDummy->next = nullptr;
+        tail = currentDummy;
+        size = copy.size;
+    }
+
+    
+}
 
 //Destructor method that frees all the memory allocated for a Linked List
 template <typename T>
@@ -48,11 +80,43 @@ Singly_Linked_List<T>::~Singly_Linked_List()
 
 }
 
-// Singly_Linked_List &Singly_Linked_List<T>::operator=(const Singly_Linked_List &copy)
-// {
-    
+template <typename T>
+Singly_Linked_List<T> &Singly_Linked_List<T>::operator=(const Singly_Linked_List<T> &copy)
+{
+    Clear();
+    if(copy.size == 0){
+        head = nullptr;
+        tail = nullptr;
+        size = 0;
+    }
 
-// }
+    else if(copy.size == 1){
+        head = new Node(copy.head->data);
+        tail = head;
+        size = 1;
+    }
+
+    else{
+        head = new Node(copy.head->data);
+        Node* currentDummy = head;
+
+        Node* copyTemp = copy.head->next;
+
+        while(copyTemp != nullptr){
+            
+            currentDummy->next = new Node(copyTemp->data);
+            currentDummy = currentDummy->next;
+            copyTemp = copyTemp->next;
+        }
+
+        currentDummy->next = nullptr;
+        tail = currentDummy;
+        size = copy.size;
+    }
+
+    return *this;    
+
+}
 
 template <typename T>
 T& Singly_Linked_List<T>::operator[](unsigned int index){
