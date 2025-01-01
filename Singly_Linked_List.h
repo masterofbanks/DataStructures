@@ -32,8 +32,8 @@ public:
     void AddHead(T d);
     void AddTail(T d);
     void InsertAfter(T d, unsigned int index);
-    //void AddNodesHead(const T* data, unsigned int count);
-    //void AddNodesTail(const T* data, unsigned int count);
+    void AddNodesHead(const T* data, unsigned int count);
+    void AddNodesTail(const T* data, unsigned int count);
     //void InsertAt(T d, unsgined int index);
 
 

@@ -253,6 +253,31 @@ void Singly_Linked_List<T>::InsertAfter(T d, unsigned int index){
     
 }
 
+/* insert an array of nodes into the linked list at the head
+Ex:  add [0,1,2,3] to [4,5,6,7] -> [0,1,2,3]
+
+*/
+template <typename T>
+void Singly_Linked_List<T>::AddNodesHead(const T* data, unsigned int count){
+    for(int i = count-1; i >=0; i--){
+        AddHead(*(data+i));
+
+    }
+}
+
+
+/* insert an array of nodes into the linked list at the tail
+Ex:  add [0,1,2,3] to [4,5,6,7] -> [4,5,6,7,0,1,2,3]
+
+*/
+template <typename T>
+void Singly_Linked_List<T>::AddNodesTail(const T* data, unsigned int count){
+    for(int i = 0; i < count; i++){
+        AddTail(*(data+i));
+
+    }
+}
+
 //remove the head of the linked list and make head's next the new head
 template <typename T>
 void Singly_Linked_List<T>::RemoveHead(){

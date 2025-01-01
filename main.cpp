@@ -11,6 +11,12 @@ int main(){
     
     Int_List.Print();
 
-    
+    int test[] = {0,1,2,3,4};
+
+    Int_List.AddNodesTail(test, 5);
+
+    Int_List.Print();
+
+
     
 }
