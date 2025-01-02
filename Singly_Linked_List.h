@@ -34,7 +34,7 @@ public:
     void InsertAfter(T d, unsigned int index);
     void AddNodesHead(const T* data, unsigned int count);
     void AddNodesTail(const T* data, unsigned int count);
-    //void InsertAt(T d, unsgined int index);
+    void InsertAt(T d, unsigned int index);
 
 
     /* Deletion*/
@@ -43,7 +43,7 @@ public:
     void RemoveHead();
     void RemoveTail();
     void Clear();
-    //void Remove(T d);
+    int Remove(T d);
     //bool RemoveAt(unsigned int index);
 
     /*Getters*/

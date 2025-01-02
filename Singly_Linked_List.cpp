@@ -278,6 +278,42 @@ void Singly_Linked_List<T>::AddNodesTail(const T* data, unsigned int count){
     }
 }
 
+
+//insert data at a specifc index
+/* 
+Example:
+InsertAt(4, 2) 
+list is {1,2,3,4}
+
+list should then be 
+{1,2,4,3,4}
+*/
+template <typename T>
+void Singly_Linked_List<T>::InsertAt(T d, unsigned int index){
+    try{
+        if(index == size){
+            AddTail(d);
+        }
+
+        else if(index == 0){
+            AddHead(d);
+        }
+
+        else if(index > size){
+            throw std::out_of_range("index is out of the range of the size of the list");
+
+        }
+
+        else{
+            InsertAfter(d, index-1);
+        }
+    }
+
+    catch(const std::out_of_range& e){
+        std::cerr << "Error: " << e.what() << std::endl;
+    }
+}
+
 //remove the head of the linked list and make head's next the new head
 template <typename T>
 void Singly_Linked_List<T>::RemoveHead(){
@@ -437,4 +473,68 @@ void Singly_Linked_List<T>::Clear(){
     size = 0;
 }
 
+//remove all nodes from the linked list with value d
+//return the number of nodes deleted
+template <typename T>
+int Singly_Linked_List<T>::Remove(T d){
+    if(head == nullptr){
+        return 0;
+    }
+    int numNodesDeleted = 0;
+    Node* current = head;
+    Node* prev = nullptr;
+
+    
+    while(current->data == d){
+        
+        RemoveHead();
+
+        current = head;
+        if(current == nullptr){
+            break;
+        }
+        numNodesDeleted++;
+    }
+
+
+    current = head->next;
+    prev = head;
+    int index = 0;
+    Node* garb = nullptr;
+    while(current != nullptr){
+        index++;
+
+        if(current->data == d){
+            if(tail->data == d && index==size-1){
+                garb = tail;
+                tail = prev;
+                tail->next = nullptr;
+                delete(garb);
+                numNodesDeleted++;
+                size--;
+                break;
+            }
+            prev->next = current->next;
+            garb = current;
+            current = current->next;
+            
+            delete(garb);
+            numNodesDeleted++;
+            size--;
+            index--;
+            
+        }
+
+        else{
+            prev = current;
+            current = current->next;
+        }
+
+
+    }
+
+
+    return numNodesDeleted;
+
+}
 
