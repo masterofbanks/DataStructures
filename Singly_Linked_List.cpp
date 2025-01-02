@@ -491,7 +491,7 @@ int Singly_Linked_List<T>::Remove(T d){
 
         current = head;
         if(current == nullptr){
-            break;
+            return numNodesDeleted+1;
         }
         numNodesDeleted++;
     }
