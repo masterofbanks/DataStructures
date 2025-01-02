@@ -27,6 +27,7 @@ public:
     Singly_Linked_List& operator=(const Singly_Linked_List& fuck);
     T& operator[](unsigned int index);
     bool operator==(const Singly_Linked_List<T>& rhs) const;
+    //void Sort();
 
     /*Insertion */
     void AddHead(T d);
@@ -47,8 +48,8 @@ public:
     //bool RemoveAt(unsigned int index);
 
     /*Getters*/
-    //Find
-    //Find All
+    Node* Find(T d);
+    void FindAll(std::vector<Node*>& outData, T d);  
     Node* GetNode(unsigned int index);
     void Print();
     Node* Head();

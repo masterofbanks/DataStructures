@@ -381,6 +381,56 @@ void Singly_Linked_List<T>::RemoveTail(){
     
     
 }
+
+/*
+Find the first node with a data value matching the passed in parameter, 
+returning a pointer to that node. Returns nullptr if no matching node found. 
+*/
+template <typename T>
+typename Singly_Linked_List<T>::Node* Singly_Linked_List<T>::Find(T d){
+    if(head == nullptr){
+        return nullptr;
+    }
+    
+    Node* current = head;
+
+    while(current != nullptr){
+        if(current->data == d){
+            return current;
+        }
+
+        current = current->next;
+    }
+
+    return nullptr;
+
+}
+
+/*
+Find all nodes which match the passed in parameter value, and store a pointer to 
+that node in the passed in vector. Use of a parameter like this (passing a 
+something in by reference, and storing data for later use) is called an output 
+parameter. 
+
+
+*/
+template <typename T>
+void Singly_Linked_List<T>::FindAll(std::vector<Node*> & outData, T d){
+    if(head == nullptr){
+        return;
+    }
+
+    Node* current = head;
+    while(current != nullptr){
+        if(current->data == d){
+            outData.push_back(current);
+        }
+
+        current = current->next;
+    }
+}
+
+
 //gets a node at an index of a Linked list
 template <typename T>
 typename Singly_Linked_List<T>::Node* Singly_Linked_List<T>::GetNode(unsigned int index){
