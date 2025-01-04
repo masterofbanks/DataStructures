@@ -27,7 +27,7 @@ public:
     Singly_Linked_List& operator=(const Singly_Linked_List& fuck);
     T& operator[](unsigned int index);
     bool operator==(const Singly_Linked_List<T>& rhs) const;
-    //void Sort();
+    void Sort();
 
     /*Insertion */
     void AddHead(T d);
@@ -61,6 +61,9 @@ private:
     Node* head;
     Node* tail;
     int size;
+
+    void Merge(int left, int mid, int right);
+    void MergeSort(int left, int right);
 };
 
 #include "Singly_Linked_List.cpp"

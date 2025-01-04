@@ -154,6 +154,76 @@ bool Singly_Linked_List<T>::operator==(const Singly_Linked_List<T>& rhs) const{
     return true;
 }
 
+template <typename T>
+void Singly_Linked_List<T>::Sort(){
+    MergeSort(0, Size() - 1);
+}
+
+template <typename T>
+void Singly_Linked_List<T>::Merge(int left, int mid, int right){
+    int n1 = mid - left + 1;
+    int n2 = right - mid;
+
+    Singly_Linked_List<T> L;
+    Singly_Linked_List<T> R;
+    for(int i = 0; i < n1; i++){
+        L.AddTail(GetNode(left + i)->data);
+    }
+
+    for(int j = 0; j < n2; j++){
+        R.AddTail(GetNode(mid + 1 + j)->data);
+    }
+
+    int i = 0, j = 0;
+    int k = left;
+
+    
+    while(i < n1 && j < n2){
+        if(L[i] <= R[j]){
+            GetNode(k)->data = L[i];
+            i++;
+        }
+
+        else{
+            GetNode(k)->data = R[j];
+            j++;
+        }
+
+        k++;
+    }
+
+    while(i < n1){
+        GetNode(k)->data = L[i];
+        i++;
+        k++;
+    }
+
+    while(j < n2){
+        GetNode(k)->data = R[j];
+        j++;
+        k++;
+    }
+
+
+
+
+}
+
+
+template <typename T>
+void Singly_Linked_List<T>::MergeSort(int left, int right){
+    if(left >= right){
+        return;
+    }
+
+    int mid = left + (right - left) / 2;
+    MergeSort(left, mid);
+    MergeSort(mid + 1, right);
+    Merge(left, mid, right);
+
+}
+
+
 //get the size of the linked list
 template <typename T>
 int Singly_Linked_List<T>::Size(){
