@@ -588,3 +588,55 @@ int Singly_Linked_List<T>::Remove(T d){
 
 }
 
+
+/*
+Deletes the index-th Node from the list, returning whether or not the operation 
+was successful. 
+*/
+template <typename T>
+bool Singly_Linked_List<T>::RemoveAt(unsigned int index){
+    if(head == nullptr){
+        return false;
+    }
+
+    if(index == 0){
+        RemoveHead();
+        return true;
+    }
+
+    try{
+        if(index >= size){
+            throw std::out_of_range("index out of range of the size of the list");
+        }
+
+        else if(index == size - 1){
+            RemoveTail();
+            return true;
+        }
+
+        else{
+            int i = 0;
+            Node* current = head;
+            Node* prev = nullptr;
+            while(i != index){
+                prev = current;
+                current = current->next;
+                i++;
+            }
+
+            Node* garb = current;
+            prev->next = current->next;
+            delete(garb);
+            size--;
+            return true;
+        }
+    }
+
+    catch(const std::out_of_range& e){
+        std::cerr << "Error: " << e.what() << std::endl;
+    }
+
+    return false;
+}
+
+

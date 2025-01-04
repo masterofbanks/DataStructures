@@ -17,16 +17,25 @@ int main(){
     Int_List.AddTail(4);
 
 
-    std::vector<Singly_Linked_List<int>::Node*> test;
+    Int_List.Print();
+    
+    Int_List.RemoveAt(0);
 
-    Int_List.FindAll(test, 4);
+    Int_List.Print();
 
-    std::cout << test.size() << std::endl;
+    Int_List.RemoveAt(14);
+
+    Int_List.Print();
+
+    Int_List.RemoveAt(7);
+
+
+    Int_List.Print();
+
+    Int_List.RemoveAt(30);
     
 
-    
-
-
+    Int_List.Print();
     
     
 

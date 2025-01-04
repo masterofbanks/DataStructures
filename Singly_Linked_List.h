@@ -29,7 +29,7 @@ public:
     bool operator==(const Singly_Linked_List<T>& rhs) const;
     //void Sort();
 
-    /*Insertion *//
+    /*Insertion */
     void AddHead(T d);
     void AddTail(T d);
     void InsertAfter(T d, unsigned int index);
@@ -45,7 +45,7 @@ public:
     void RemoveTail();
     void Clear();
     int Remove(T d);
-    //bool RemoveAt(unsigned int index);
+    bool RemoveAt(unsigned int index);
 
     /*Getters*/
     Node* Find(T d);
