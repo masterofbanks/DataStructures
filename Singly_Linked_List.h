@@ -24,7 +24,7 @@ public:
     ~Singly_Linked_List(); //destructor
 
     /*Operators*/
-    Singly_Linked_List& operator=(const Singly_Linked_List& fuck);
+    Singly_Linked_List& operator=(const Singly_Linked_List<T>& other);
     T& operator[](unsigned int index);
     bool operator==(const Singly_Linked_List<T>& rhs) const;
     void Sort();
