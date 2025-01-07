@@ -324,7 +324,7 @@ void Singly_Linked_List<T>::InsertAfter(T d, unsigned int index){
 }
 
 /* insert an array of nodes into the linked list at the head
-Ex:  add [0,1,2,3] to [4,5,6,7] -> [0,1,2,3]
+Ex:  add [0,1,2,3] to [4,5,6,7] -> [0,1,2,3,4,5,6,7]
 
 */
 template <typename T>
@@ -332,6 +332,24 @@ void Singly_Linked_List<T>::AddNodesHead(const T* data, unsigned int count){
     for(int i = count-1; i >=0; i--){
         AddHead(*(data+i));
 
+    }
+}
+
+
+/* insert a vector of nodes into the linked list at the head
+Ex:  add [0,1,2,3] to [4,5,6,7] -> [0,1,2,3,4,5,6,7]
+
+*/
+template <typename T>
+void Singly_Linked_List<T>::AddNodesHead(std::vector<T>& input){
+    for(int i = 0; i < input.size(); i++){
+        if(i == 0){
+            AddHead(input[i]);
+        }
+
+        else{
+            InsertAt(input[i], i);
+        }
     }
 }
 
@@ -348,6 +366,18 @@ void Singly_Linked_List<T>::AddNodesTail(const T* data, unsigned int count){
     }
 }
 
+
+
+/* insert a vector of nodes into the linked list at the tail
+Ex:  add [0,1,2,3] to [4,5,6,7] -> [0,1,2,3]
+
+*/
+template <typename T>
+void Singly_Linked_List<T>::AddNodesTail(std::vector<T>& input){
+    for(int i = 0; i < input.size(); i++){
+        AddTail(input[i]);
+    }
+}
 
 //insert data at a specifc index
 /* 

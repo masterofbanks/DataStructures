@@ -34,7 +34,9 @@ public:
     void AddTail(T d);
     void InsertAfter(T d, unsigned int index);
     void AddNodesHead(const T* data, unsigned int count);
+    void AddNodesHead(std::vector<T>& input);
     void AddNodesTail(const T* data, unsigned int count);
+    void AddNodesTail(std::vector<T>& input);
     void InsertAt(T d, unsigned int index);
 
 
