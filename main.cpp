@@ -2,26 +2,31 @@
 #include <vector>
 #include <string> 
 #include <random>
-#include "Singly_Linked_List.h"
+#include "Stack.h"
 
 int main(){
-    Singly_Linked_List<float> FloatList;
-    std::vector<float> vector_floats;
-    vector_floats.push_back(24.1f);
-    vector_floats.push_back(25.1f);
-    vector_floats.push_back(26.1f);
-    vector_floats.push_back(27.1f);
-    vector_floats.push_back(28.1f);
-
-
-    FloatList.AddNodesHead(vector_floats);
-    FloatList.AddNodesTail(vector_floats);
-
-    FloatList.Print();
-
     
+    Stack<int> test;
+    test.Push(4);
+    test.Push(45);
+    test.Push(47);
+    test.Push(48);
+    test.Push(41);
+    test.Push(42);
+
+    test.Print();
+
+    test.Pop();
+    test.Pop();
+
+    test.Print();
     
-    
+    test.Clear();
+
+    test.Pop();
+
+    test.Print();
+
 
     
 }

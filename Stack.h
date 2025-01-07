@@ -10,16 +10,19 @@ class Stack{
 public:
     /* Construction and Destruction */
     Stack();
-    Stack(const Stack& stack);
+    //Stack(const Stack& stack);
     ~Stack();
 
     /*Operators*/
-    Stack& operator=(const Stack& other);
-    bool operator==(const )
-    void Swap();
+    //Stack& operator=(const Stack& other);
+    //bool operator==(const Stack<T>& rhs) const;
+    //void Swap();
+    // << operator
+
+    void Print();
 
     /*Insertion*/
-    void Push();
+    void Push(T d);
 
     /*Deletion*/
     void Pop();

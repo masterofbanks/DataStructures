@@ -28,6 +28,7 @@ public:
     T& operator[](unsigned int index);
     bool operator==(const Singly_Linked_List<T>& rhs) const;
     void Sort();
+    // << operator for linkedlist of linkedlists printing
 
     /*Insertion */
     void AddHead(T d);
@@ -41,8 +42,6 @@ public:
 
 
     /* Deletion*/
-
-
     void RemoveHead();
     void RemoveTail();
     void Clear();
@@ -57,7 +56,7 @@ public:
     Node* Head();
     Node* Tail();
     int Size();
-
+    
 
 private:
     Node* head;
