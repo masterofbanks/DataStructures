@@ -223,6 +223,17 @@ void Singly_Linked_List<T>::MergeSort(int left, int right){
 
 }
 
+template <typename T>
+void Singly_Linked_List<T>::Swap(Singly_Linked_List<T>& other){
+    Node* tempHead = head;
+    Node* tempTail = tail;
+    head = other.head;
+    tail = other.tail;
+    other.head = tempHead;
+    other.tail = tempTail;
+
+}
+
 
 //get the size of the linked list
 template <typename T>

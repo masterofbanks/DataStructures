@@ -6,26 +6,25 @@
 
 int main(){
     
-    Stack<int> test;
-    test.Push(4);
-    test.Push(45);
-    test.Push(47);
-    test.Push(48);
-    test.Push(41);
-    test.Push(42);
+    Singly_Linked_List<int> firstlist;
 
-    test.Print();
+    for(int i = 0; i < 10; i++){
+        firstlist.AddTail(i);
+    }
 
-    test.Pop();
-    test.Pop();
+    Singly_Linked_List<int> secondList;
 
-    test.Print();
-    
-    test.Clear();
+    for(int i = 11; i < 21; i++){
+        secondList.AddTail(i);
+    }
 
-    test.Pop();
+    firstlist.Print();
+    secondList.Print();
 
-    test.Print();
+    firstlist.Swap(secondList);
+
+    firstlist.Print();
+    secondList.Print();
 
 
     

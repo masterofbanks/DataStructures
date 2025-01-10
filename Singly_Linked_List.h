@@ -28,6 +28,7 @@ public:
     T& operator[](unsigned int index);
     bool operator==(const Singly_Linked_List<T>& rhs) const;
     void Sort();
+    void Swap(Singly_Linked_List<T>& other);
     // << operator for linkedlist of linkedlists printing
 
     /*Insertion */
