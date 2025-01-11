@@ -14,9 +14,7 @@ int main(){
 
     Singly_Linked_List<int> secondList;
 
-    for(int i = 11; i < 21; i++){
-        secondList.AddTail(i);
-    }
+    
 
     firstlist.Print();
     secondList.Print();

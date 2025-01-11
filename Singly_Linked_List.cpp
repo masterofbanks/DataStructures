@@ -227,10 +227,13 @@ template <typename T>
 void Singly_Linked_List<T>::Swap(Singly_Linked_List<T>& other){
     Node* tempHead = head;
     Node* tempTail = tail;
+    int tempSize = size;
     head = other.head;
     tail = other.tail;
+    size = other.size;
     other.head = tempHead;
     other.tail = tempTail;
+    other.size = tempSize;
 
 }
 
@@ -345,7 +348,7 @@ void Singly_Linked_List<T>::AddNodesHead(const T* data, unsigned int count){
 
     }
 }
-
+//
 
 /* insert a vector of nodes into the linked list at the head
 Ex:  add [0,1,2,3] to [4,5,6,7] -> [0,1,2,3,4,5,6,7]
@@ -363,6 +366,8 @@ void Singly_Linked_List<T>::AddNodesHead(std::vector<T>& input){
         }
     }
 }
+
+
 
 
 /* insert an array of nodes into the linked list at the tail
