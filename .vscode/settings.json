@@ -57,6 +57,13 @@
         "random": "cpp",
         "ranges": "cpp",
         "span": "cpp",
-        "stack": "cpp"
+        "stack": "cpp",
+        "bitset": "cpp",
+        "xhash": "cpp",
+        "xtree": "cpp",
+        "functional": "cpp",
+        "list": "cpp",
+        "map": "cpp",
+        "unordered_map": "cpp"
     }
 }
